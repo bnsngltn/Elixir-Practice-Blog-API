@@ -7,6 +7,12 @@ defmodule BlogWeb.Router do
 
   scope "/api", BlogWeb do
     pipe_through :api
+
+    get "/posts", PostController, :index
+    get "/posts/:id", PostController, :show
+    post "/posts", PostController, :create
+    put "/posts/:id", PostController, :update
+    delete "/posts/:id", PostController, :delete
   end
 
   # Enables LiveDashboard only for development
